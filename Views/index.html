@@ -57,36 +57,36 @@
       <h2 class="text-center">Starting A Business Schedule Generator</h2>
       <br />
 
-      <form id="DateForm"> 
+      <form
+        id="DateForm"
+        action="http://localhost:5000/generateSAB"
+        method="POST"
+      >
         <div class="form-group row">
-
           <label for="sd" class="col-sm-2 col-form-label">Start Date</label>
           <div class="col-sm-10">
-            <input type="date" class="form-control" id="sd" />
+            <input type="date" class="form-control" name="sd" />
           </div>
-          
+
           <label for="ed" class="col-sm-2 col-form-label">End Date</label>
           <div class="col-sm-10">
-            <input type="date" class="form-control" id="ed" />
+            <input type="date" class="form-control" name="ed" />
           </div>
 
           <label for="tn" class="col-sm-2 col-form-label">Teacher Name</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="tn" />
+            <input type="text" class="form-control" name="tn" />
           </div>
         </div>
 
         <br />
 
-        <button type="submit" class="btn btn-info" onsubmit="gen()">
+        <button type="submit" class="btn btn-info">
           Generate Schedule
         </button>
       </form>
 
-      <div id="preview">
-
-      </div>
-
+      <div id="preview"></div>
     </div>
   </body>
 
@@ -96,31 +96,27 @@
     </div>
   </footer>
 
+  <style>
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #212529;
+      color: white;
+      text-align: center;
+    }
+  </style>
 
-<style>
-  footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #212529;
-    color: white;
-    text-align: center;
-  }
-</style>
+  <script>
+    function gen() {
+      var x = document.getElementById("sd").value;
+      var y = document.getElementById("ed").value;
+      var z = document.getElementById("tn").value;
 
-<script>
-  function gen() {
-    
-    var x = document.getElementById("sd").value
-    var y = document.getElementById("ed").value
-    var z = document.getElementById("tn").value
-
-    console.log(x)
-    console.log(y)
-    console.log(z)
-
-  }
-
-</script>
+      console.log(x);
+      console.log(y);
+      console.log(z);
+    }
+  </script>
 </html>
