@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const xlsx = require("xlsx");
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,7 +29,15 @@ app.post("/generateSAB", (req, res) => {
   for (; sd.getTime() < ed.getTime() + 1; sd.setDate(sd.getDate() + 7)) {
     dates.push(sd.toDateString());
   }
-  console.log(dates);
+  var wb = xlsx.readFile("./SAB-Template.xlsx");
+  var ws = wb.Sheets["Starting a Business"];
+
+  //data[6]["__EMPTY_3"] = "1234567";
+  //var worksheet = xlsx.utils.json_to_sheet(data);
+
+  //const workbook = xlsx.utils.book_new();
+  //xlsx.utils.book_append_sheet(workbook, worksheet, "SAB");
+  //xlsx.writeFile(workbook, "generatedSAB.xlsx");
 });
 
 // Prof Sales Route
